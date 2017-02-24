@@ -17,8 +17,6 @@ includes:
 search: true
 ---
 
-<script src="https://use.fontawesome.com/d7623d0ea2.js"></script>
-
 # Getting Started
 
 Constellation Brands APIs provide instant access to a variety of datasets including Items, Brands, and Worker Demographics. Explore the available APIs to see setup instructions and sample responses.
