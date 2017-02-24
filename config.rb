@@ -17,9 +17,6 @@ set :fonts_dir, 'fonts'
 
 # Activate the syntax highlighter
 activate :syntax
-ready do
-  require './lib/multilang.rb'
-end
 
 activate :sprockets
 
