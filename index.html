@@ -4,10 +4,9 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <link href="images/favicon.ico" rel="icon" type="image/ico" />
+    <title>Constellation Brands API Catalog</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -16,11 +15,11 @@
   background-color: #272822;
 }
 .highlight .err {
-  color: #151515;
-  background-color: #ac4142;
+  color: #272822;
+  background-color: #f92672;
 }
 .highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #505050;
+  color: #75715e;
 }
 .highlight .cp {
   color: #f4bf75;
@@ -29,45 +28,45 @@
   color: #f4bf75;
 }
 .highlight .o, .highlight .ow {
-  color: #d0d0d0;
+  color: #f8f8f2;
 }
 .highlight .p, .highlight .pi {
-  color: #d0d0d0;
+  color: #f8f8f2;
 }
 .highlight .gi {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .gd {
-  color: #ac4142;
+  color: #f92672;
 }
 .highlight .gh {
-  color: #6a9fb5;
-  background-color: #151515;
+  color: #66d9ef;
+  background-color: #272822;
   font-weight: bold;
 }
 .highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #aa759f;
+  color: #ae81ff;
 }
 .highlight .kc {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .kt {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .kd {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .sr {
-  color: #75b5aa;
+  color: #a1efe4;
 }
 .highlight .si {
-  color: #8f5536;
+  color: #cc6633;
 }
 .highlight .se {
-  color: #8f5536;
+  color: #cc6633;
 }
 .highlight .nn {
   color: #f4bf75;
@@ -79,32 +78,29 @@
   color: #f4bf75;
 }
 .highlight .na {
-  color: #6a9fb5;
+  color: #66d9ef;
 }
 .highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .ss {
-  color: #90a959;
+  color: #a6e22e;
 }
     </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-        </div>
+      <img src="images/logo.png" alt="Logo" />
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -112,236 +108,296 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='#'>Contact Us</a></li>
+            <li><p>&copy; 2017 Constellation Brands, Inc.</p></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        <script src="https://use.fontawesome.com/d7623d0ea2.js"></script>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<h1 id="getting-started">Getting Started</h1>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>Constellation Brands APIs provide instant access to a variety of datasets including Items, Brands, and Worker Demographics. Explore the available APIs to see setup instructions and sample responses.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<h2 id="accessing-our-apis">Accessing Our APIs</h2>
 
-<h1 id="authentication">Authentication</h1>
+<p>Most Constellation Brands APIs require an API key. Some APIs containing sensitive data will require additional authentication, as outlined in the documentation below. You will receive an API key and additional instructions via email once approved.</p>
+
+<h3 id="how-to-register-and-authenticate">How to Register and Authenticate</h3>
 
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>Example API request using cURL:</p>
 </blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://mocksvc.mulesoft.com/what/is/the/url/1.0/items/1002"</span>
+  -H <span class="s2">"Authorization: YourAPIKey"</span>
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+<p>The above command returns the following JSON:</p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"beverageSegmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"beverageSegmentDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WINE"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"brandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"343"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"gtin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"620654020010"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"itemCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"itemDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INNA EST RIES VQA 750/12"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"subBrandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2391"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"typeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"universalSKUCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23011"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"universalSKUDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INNISKILLIN NIAGARA EST COL RIESLING 750ML"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"upc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"062065402001"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"varietalBlendCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"632"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"vintageDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N/A"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ol>
+<li><a href="#">Request an API key</a> by providing information about your application</li>
+<li>The Constellation Brands API team will review your request and respond via email with an API key</li>
+<li>Make an API request with the following header attributes to authenticate your call:</li>
+</ol>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<table><thead>
+<tr>
+<th>Header Name</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_id</td>
+<td>ID provided by CBI upon registration</td>
+<td>4eb335ddb09f56260ec913551b2496ac</td>
+</tr>
+<tr>
+<td>client_secret</td>
+<td>API key provided by CBI upon registration</td>
+<td>a822f98b5a468de741773710f7925141</td>
+</tr>
+</tbody></table>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+          <h1 id="bottle-shots-api">Bottle Shots API</h1>
 
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
+<p>This API returns promotional product images (&ldquo;bottle shots&rdquo;) based on GTIN or UPC. It includes some identifying information about the product as well as a variety of image formats:</p>
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+<ul>
+<li>Mini image (PNG)</li>
+<li>Standard final JPEG (JPG)</li>
+<li>Web image (full-size PNG)</li>
+</ul>
 
-<h1 id="kittens">Kittens</h1>
+<p>The API can return a specific product or all product images modified since a specific date.</p>
 
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestKeyModal">
+  <i class="fa fa-key wide-icon" aria-hidden="true"></i>Request an API Key
+</button></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<h3 id="attribute-details">Attribute Details</h3>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<p>The following attributes are returned by the Bottle Shots API:</p>
+
+<table><thead>
+<tr>
+<th>Attribute Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dateCreated</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>datePublished</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dateModified</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>extension</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>upc</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>brandFamily</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>varietal</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>vintage</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>itemSize</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>webImage</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>miniImage</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>standardFinalJpeg</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>thul</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+<tr>
+<td>transparentPNG</td>
+<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-bottle-shots">Get All Bottle Shots</h2>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Sample JSON response for /bottleShots:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"brandFamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"754"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05T21:10:18Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dateModified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-06T16:24:26Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"datePublished"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T18:12:09Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"psd"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9135BEC3-CF40-4819-B7C9C16DD7E92BF1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"itemSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"219"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"miniImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/mini-0AA4663D-852F-4DA2-97877C3DF1AD6BA7.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014 CHS Cabernet Sauvignon 750ml Bottle Shot"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"standardFinalJpeg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/Standard Final JPG-CHS_Bottle_Shot.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/thul-7ECA50DA-3BF8-4872-9BC1D6B268CFD9F2.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"upc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"184745000126"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"varietal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"vintage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"webImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/webimage-4D27936B-F803-4DC7-80DB39A24800A652.png"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="nt">"brandFamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"754"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05T21:10:18Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dateModified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-06T16:24:26Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"datePublished"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T18:12:09Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"psd"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9135BEC3-CF40-4819-B7C9C16DD7E92BF1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"itemSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"219"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"miniImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/mini-0AA4663D-852F-4DA2-97877C3DF1AD6BA7.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014 CHS Cabernet Sauvignon 750ml Bottle Shot"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"standardFinalJpeg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/Standard Final JPG-CHS_Bottle_Shot.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/thul-7ECA50DA-3BF8-4872-9BC1D6B268CFD9F2.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"upc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"184745000126"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"varietal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"vintage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"webImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/webimage-4D27936B-F803-4DC7-80DB39A24800A652.png"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-
-<p>This endpoint retrieves all kittens.</p>
+<p>Retrieves all bottle shots that have been modified since the specified date.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+<p><code class="prettyprint">GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
 <th>Description</th>
+<th>Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>dateModified</td>
+<td>Retrieve all bottle shots modified after this time</td>
+<td>datetime</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<h2 id="get-a-specific-bottle-shot">Get a Specific Bottle Shot</h2>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Sample JSON response for /bottleShots/{gtin}:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="nt">"brandFamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"754"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05T21:10:18Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"dateModified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-06T16:24:26Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"datePublished"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T18:12:09Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"psd"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9135BEC3-CF40-4819-B7C9C16DD7E92BF1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"itemSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"219"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"miniImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/mini-0AA4663D-852F-4DA2-97877C3DF1AD6BA7.png"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014 CHS Cabernet Sauvignon 750ml Bottle Shot"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"standardFinalJpeg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/Standard Final JPG-CHS_Bottle_Shot.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"thul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/thul-7ECA50DA-3BF8-4872-9BC1D6B268CFD9F2.png"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"upc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"184745000126"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"varietal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"vintage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"webImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/webimage-4D27936B-F803-4DC7-80DB39A24800A652.png"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>This endpoint retrieves a specific bottle shot based on the product&rsquo;s GTIN.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">GET GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots/{gtin}</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h3 id="uri-parameters">URI Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Description</th>
+<th>Decription</th>
+<th>Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-
-          <h1 id="errors">Errors</h1>
-
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td>gtin</td>
+<td>The GTIN of the product to retrieve</td>
+<td>string</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-          </div>
       </div>
     </div>
   </body>
