@@ -10,7 +10,7 @@ The API can return a specific product (based on GTIN) or all product images modi
 
 ###Authentication
 
-> GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots?apiKey=YourAPIKey
+> GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots?apiKey=YourAPIKey
 
 The Bottle Shots API requires only an API key for authentication. Submit a request for a key and use it as shown here.
 
@@ -20,7 +20,7 @@ The Bottle Shots API requires only an API key for authentication. Submit a reque
 
 ### HTTP Request
 
-`GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots?apiKey=YourAPIKey`
+`GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots?apiKey=YourAPIKey`
 
 <div class="modal" id="requestKeyModal" tabindex="-1" role="dialog" aria-labelledby="requestKeyModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -139,7 +139,7 @@ transparentPNG | URL for the full-size PNG bottle shot | string
 
 ## Get All Bottle Shots
 
-> GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots
+> GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots
 
 ```json
 [
@@ -184,7 +184,7 @@ Retrieves all bottle shots that have been modified since the specified date.
 
 ### HTTP Request
 
-`GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots`
+`GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots`
 
 ### Query Parameters
 
@@ -195,7 +195,7 @@ apiKey | The API key you received upon registration | string
 
 ## Get a Specific Bottle Shot
 
-> GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots/184745000126
+> GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots/184745000126
 
 ```json
 {
@@ -221,7 +221,7 @@ This endpoint retrieves a specific bottle shot based on the product's GTIN.
 
 ### HTTP Request
 
-`GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots/{gtin}`
+`GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots/{gtin}`
 
 ### URI Parameters
 
