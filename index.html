@@ -126,9 +126,9 @@
 <h3 id="how-to-register-and-authenticate">How to Register and Authenticate</h3>
 
 <blockquote>
-<p>Example API request using cURL:</p>
+<p>Example API request in cURL using only an API key:</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://mocksvc.mulesoft.com/what/is/the/url/1.0/items/1002"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://mocksvc.mulesoft.com/mocks/60329a89-e440-4f72-90cb-b6b0564f949e/api/1.0/1002"</span>
   -H <span class="s2">"Authorization: YourAPIKey"</span>
 </code></pre>
 <blockquote>
@@ -153,8 +153,8 @@
 </span></code></pre>
 <ol>
 <li><a href="#">Request an API key</a> by providing information about your application</li>
-<li>The Constellation Brands API team will review your request and respond via email with an API key</li>
-<li>Make an API request with the following header attributes to authenticate your call:</li>
+<li>The Constellation Brands API team will review your request and respond via email with credentials to access the API</li>
+<li>Make an API request with the following header attributes (if required) to authenticate your call:</li>
 </ol>
 
 <table><thead>
@@ -171,14 +171,18 @@
 </tr>
 <tr>
 <td>client_secret</td>
-<td>API key provided by CBI upon registration</td>
+<td>Password provided by CBI upon registration</td>
 <td>a822f98b5a468de741773710f7925141</td>
 </tr>
 </tbody></table>
 
+<aside class="notice">
+  Some APIs do not require a client ID or secret.
+</aside>
+
           <h1 id="bottle-shots-api"><i class="fa fa-picture-o wide-icon" aria-hidden="true"></i>Bottle Shots API</h1>
 
-<p>This API returns promotional product images (&ldquo;bottle shots&rdquo;) based on GTIN or UPC. It includes some identifying information about the product as well as a variety of image formats:</p>
+<p>This API returns promotional product images (&ldquo;bottle shots&rdquo;) from the Constellation Brands Global Brand Center. It includes some identifying information about the product as well as a variety of image formats:</p>
 
 <ul>
 <li>Mini image (PNG)</li>
@@ -186,7 +190,15 @@
 <li>Web image (full-size PNG)</li>
 </ul>
 
-<p>The API can return a specific product or all product images modified since a specific date.</p>
+<p>The API can return a specific product (based on GTIN) or all product images modified since a specific date.</p>
+
+<h3 id="authentication">Authentication</h3>
+
+<blockquote>
+<p>GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots?apiKey=YourAPIKey</p>
+</blockquote>
+
+<p>The Bottle Shots API requires only an API key for authentication. Submit a request for a key and use it as shown here.</p>
 
 <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestKeyModal">
   <i class="fa fa-key wide-icon" aria-hidden="true"></i>Request an API Key
@@ -205,17 +217,17 @@
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>35-digit item ID from Global Brand Center</td>
 <td>string</td>
 </tr>
 <tr>
 <td>name</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>Product name from Global Brand Center</td>
 <td>string</td>
 </tr>
 <tr>
 <td>dateCreated</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>Date and time this bottle shot was added to Global Brand Center</td>
 <td>string</td>
 </tr>
 <tr>
@@ -225,32 +237,32 @@
 </tr>
 <tr>
 <td>dateModified</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>Date and time this bottle shot was last modified</td>
 <td>string</td>
 </tr>
 <tr>
 <td>extension</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>File extension of the original image</td>
 <td>string</td>
 </tr>
 <tr>
 <td>upc</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>Full UPC (barcode) value for the product</td>
 <td>string</td>
 </tr>
 <tr>
 <td>brandFamily</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>Numeric brand family code for the product</td>
 <td>string</td>
 </tr>
 <tr>
 <td>varietal</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>Numeric varietal code</td>
 <td>string</td>
 </tr>
 <tr>
 <td>vintage</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>Vintage year, if specified in Global Brand Center</td>
 <td>string</td>
 </tr>
 <tr>
@@ -260,17 +272,17 @@
 </tr>
 <tr>
 <td>webImage</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>URL for the full-size PNG bottle shot</td>
 <td>string</td>
 </tr>
 <tr>
 <td>miniImage</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>URL for the PNG thumbnail image</td>
 <td>string</td>
 </tr>
 <tr>
 <td>standardFinalJpeg</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>URL for the full-size JPG bottle shot</td>
 <td>string</td>
 </tr>
 <tr>
@@ -280,7 +292,7 @@
 </tr>
 <tr>
 <td>transparentPNG</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>URL for the full-size PNG bottle shot</td>
 <td>string</td>
 </tr>
 </tbody></table>
@@ -288,7 +300,7 @@
 <h2 id="get-all-bottle-shots">Get All Bottle Shots</h2>
 
 <blockquote>
-<p>Sample JSON response for /bottleShots:</p>
+<p>GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -347,12 +359,17 @@
 <td>Retrieve all bottle shots modified after this time</td>
 <td>datetime</td>
 </tr>
+<tr>
+<td>apiKey</td>
+<td>The API key you received upon registration</td>
+<td>string</td>
+</tr>
 </tbody></table>
 
 <h2 id="get-a-specific-bottle-shot">Get a Specific Bottle Shot</h2>
 
 <blockquote>
-<p>Sample JSON response for /bottleShots/{gtin}:</p>
+<p>GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots/184745000126</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"brandFamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"754"</span><span class="p">,</span><span class="w">
@@ -376,7 +393,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots/{gtin}</code></p>
+<p><code class="prettyprint">GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots/{gtin}</code></p>
 
 <h3 id="uri-parameters">URI Parameters</h3>
 
@@ -390,6 +407,11 @@
 <tr>
 <td>gtin</td>
 <td>The GTIN of the product to retrieve</td>
+<td>string</td>
+</tr>
+<tr>
+<td>apiKey</td>
+<td>The API key you received upon registration</td>
 <td>string</td>
 </tr>
 </tbody></table>
