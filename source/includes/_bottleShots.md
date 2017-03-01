@@ -1,12 +1,18 @@
 # <i class="fa fa-picture-o wide-icon" aria-hidden="true"></i>Bottle Shots API
 
-This API returns promotional product images ("bottle shots") based on GTIN or UPC. It includes some identifying information about the product as well as a variety of image formats:
+This API returns promotional product images ("bottle shots") from the Constellation Brands Global Brand Center. It includes some identifying information about the product as well as a variety of image formats:
 
 * Mini image (PNG)
 * Standard final JPEG (JPG)
 * Web image (full-size PNG)
 
-The API can return a specific product or all product images modified since a specific date.
+The API can return a specific product (based on GTIN) or all product images modified since a specific date.
+
+###Authentication
+
+> GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots?apiKey=YourAPIKey
+
+The Bottle Shots API requires only an API key for authentication. Submit a request for a key and use it as shown here.
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestKeyModal">
   <i class="fa fa-key wide-icon" aria-hidden="true"></i>Request an API Key
@@ -17,26 +23,26 @@ The following attributes are returned by the Bottle Shots API:
 
 Attribute Name | Description | Type
 --------- | ------- | -----------
-id | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
-name | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
-dateCreated | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
+id | 35-digit item ID from Global Brand Center | string
+name | Product name from Global Brand Center | string
+dateCreated | Date and time this bottle shot was added to Global Brand Center | string
 datePublished | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
-dateModified | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
-extension | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
-upc | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
-brandFamily | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
-varietal | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
-vintage | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
+dateModified | Date and time this bottle shot was last modified | string
+extension | File extension of the original image | string
+upc | Full UPC (barcode) value for the product | string
+brandFamily | Numeric brand family code for the product | string
+varietal | Numeric varietal code | string
+vintage | Vintage year, if specified in Global Brand Center | string
 itemSize | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
-webImage | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
-miniImage | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
-standardFinalJpeg | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
+webImage | URL for the full-size PNG bottle shot | string
+miniImage | URL for the PNG thumbnail image | string
+standardFinalJpeg | URL for the full-size JPG bottle shot | string
 thul | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
-transparentPNG | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
+transparentPNG | URL for the full-size PNG bottle shot | string
 
 ## Get All Bottle Shots
 
-> Sample JSON response for /bottleShots:
+> GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots
 
 ```json
 [
@@ -88,10 +94,11 @@ Retrieves all bottle shots that have been modified since the specified date.
 Parameter | Description | Type
 --------- | ------- | -----------
 dateModified | Retrieve all bottle shots modified after this time | datetime
+apiKey | The API key you received upon registration | string
 
 ## Get a Specific Bottle Shot
 
-> Sample JSON response for /bottleShots/{gtin}:
+> GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots/184745000126
 
 ```json
 {
@@ -117,10 +124,11 @@ This endpoint retrieves a specific bottle shot based on the product's GTIN.
 
 ### HTTP Request
 
-`GET GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots/{gtin}`
+`GET https://api-workers-internal-dev.cloudhub.io/api/1.0/bottleShots/{gtin}`
 
 ### URI Parameters
 
 Parameter | Decription | Type
 --------- | ------- | -----------
 gtin | The GTIN of the product to retrieve | string
+apiKey | The API key you received upon registration | string
