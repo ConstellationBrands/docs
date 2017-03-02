@@ -182,6 +182,10 @@
 
           <h1 id="bottle-shots-api"><i class="fa fa-picture-o wide-icon" aria-hidden="true"></i>Bottle Shots API</h1>
 
+<blockquote>
+<p>https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots</p>
+</blockquote>
+
 <p>This API returns promotional product images (&ldquo;bottle shots&rdquo;) from the Constellation Brands Global Brand Center. It includes some identifying information about the product as well as a variety of image formats:</p>
 
 <ul>
@@ -194,19 +198,11 @@
 
 <h3 id="authentication">Authentication</h3>
 
-<blockquote>
-<p>GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots?apiKey=YourAPIKey</p>
-</blockquote>
-
-<p>The Bottle Shots API requires only an API key for authentication. Submit a request for a key and use it as shown here.</p>
+<p>The Bottle Shots API requires only an API key for authentication. Submit a request for a key and use it as shown in the requests below.</p>
 
 <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestKeyModal">
   <i class="fa fa-key wide-icon" aria-hidden="true"></i>Request an API Key
 </button></p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots?apiKey=YourAPIKey</code></p>
 
 <div class="modal" id="requestKeyModal" tabindex="-1" role="dialog" aria-labelledby="requestKeyModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -301,7 +297,7 @@
   </div>
 </div>
 
-<h3 id="attribute-details">Attribute Details</h3>
+<h3 id="result-details">Result Details</h3>
 
 <p>The following attributes are returned by the Bottle Shots API:</p>
 
@@ -397,7 +393,7 @@
 <h2 id="get-all-bottle-shots">Get All Bottle Shots</h2>
 
 <blockquote>
-<p>GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots</p>
+<p>https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots will return the following JSON:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -440,7 +436,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots</code></p>
+<p><code class="prettyprint">https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -466,7 +462,7 @@
 <h2 id="get-a-specific-bottle-shot">Get a Specific Bottle Shot</h2>
 
 <blockquote>
-<p>GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots/184745000126</p>
+<p>https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots/184745000126 will return the following JSON:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"brandFamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"754"</span><span class="p">,</span><span class="w">
@@ -490,7 +486,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots/{gtin}</code></p>
+<p><code class="prettyprint">https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots/{gtin}</code></p>
 
 <h3 id="uri-parameters">URI Parameters</h3>
 
@@ -506,141 +502,21 @@
 <td>The GTIN of the product to retrieve</td>
 <td>string</td>
 </tr>
-<tr>
-<td>apiKey</td>
-<td>The API key you received upon registration</td>
-<td>string</td>
-</tr>
 </tbody></table>
-
-          <h1 id="worker-demographics-api">Worker Demographics API</h1>
-
-<p>This API retrieves demographic information for employees of Constellation Brands and 3<sup>rd</sup> party partners. The API supports retrieval of all employees&rsquo; information, specific employees, and employees added/modified within specific date range. The API doesn&rsquo;t provide the entire dataset in one call, but does support pagination. Consumers can dictate how many records they need to retrieve.</p>
-
-<h3 id="authentication">Authentication</h3>
-
-<p>The Worker Demographics API is not currently available for public use. We&rsquo;ll update this page when the request form is opened up.</p>
-
-<h2 id="get-all-workers">Get All Workers</h2>
-
-<p>Retrieves all workers that match the filtering criteria.</p>
-
-<p><em>Note: Pagination applies to the results of this API call. If workerType is not specified, employees will precede distributors.</em></p>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"workers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A12345"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Employee"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"middleName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Margaret"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"jobTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Atom Smasher"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZZ72R2"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Distributor"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bond"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"jobTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spy"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api-workers-internal-dev.cloudhub.io/api/1.0/workers</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Type</th>
 <th>Description</th>
+<th>Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workerType</td>
+<td>apiKey</td>
+<td>The API key you received upon registration</td>
 <td>string</td>
-<td>Employee or distributor.</td>
-</tr>
-<tr>
-<td>lastEventDateAfter</td>
-<td>string</td>
-<td>Start date for change detection. Use with lastEventDateBefore to create a date range.</td>
-</tr>
-<tr>
-<td>lastEventDateBefore</td>
-<td>string</td>
-<td>End date for change detection.</td>
-</tr>
-</tbody></table>
-
-<h2 id="get-a-specific-worker">Get a Specific Worker</h2>
-
-<p>This endpoint retrieves a specific worker based on worker ID.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1234B"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"workerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Employee"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"middleName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"preferredName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johnny Dough-Boy"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"dateOfBirth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1900-01-12"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EST"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"preferredLanguage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en_US"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"createdOnDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T16:41:41.090Z"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"job"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123AB"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doughnut Retriever"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"isManager"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"organizationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doughnut Research and Technology"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"managerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234US"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"managerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Susan B Goode"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Constellation Brands"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"department"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doughnut Retrieval"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"division"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snacks"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"costCenterId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SD2SY3"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"costCenterName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doughnut Retrieval - General"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1994-06-03"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"workContactInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnnyDB@cbrands.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11234567890"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High Point"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"207 High Point Drive"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Victor"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"state_province"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NY"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14564"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"personalContactInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"mobilePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10987654321"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"homePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20987654321"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"doeboy@gmail.com"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><code class="prettyprint">GET GET https://api-workers-internal-dev.cloudhub.io/api/1.0/workers/{workerID}</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>workerId</td>
-<td>string</td>
-<td>The ID of the worker to retrieve.</td>
 </tr>
 </tbody></table>
 
