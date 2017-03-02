@@ -1,5 +1,7 @@
 # <i class="fa fa-picture-o wide-icon" aria-hidden="true"></i>Bottle Shots API
 
+> https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots
+
 This API returns promotional product images ("bottle shots") from the Constellation Brands Global Brand Center. It includes some identifying information about the product as well as a variety of image formats:
 
 * Mini image (PNG)
@@ -10,17 +12,11 @@ The API can return a specific product (based on GTIN) or all product images modi
 
 ###Authentication
 
-> GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots?apiKey=YourAPIKey
-
-The Bottle Shots API requires only an API key for authentication. Submit a request for a key and use it as shown here.
+The Bottle Shots API requires only an API key for authentication. Submit a request for a key and use it as shown in the requests below.
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestKeyModal">
   <i class="fa fa-key wide-icon" aria-hidden="true"></i>Request an API Key
 </button>
-
-### HTTP Request
-
-`GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots?apiKey=YourAPIKey`
 
 <div class="modal" id="requestKeyModal" tabindex="-1" role="dialog" aria-labelledby="requestKeyModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -115,7 +111,7 @@ The Bottle Shots API requires only an API key for authentication. Submit a reque
   </div>
 </div>
 
-###Attribute Details
+###Result Details
 The following attributes are returned by the Bottle Shots API:
 
 Attribute Name | Description | Type
@@ -139,7 +135,7 @@ transparentPNG | URL for the full-size PNG bottle shot | string
 
 ## Get All Bottle Shots
 
-> GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots
+> https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots will return the following JSON:
 
 ```json
 [
@@ -184,7 +180,7 @@ Retrieves all bottle shots that have been modified since the specified date.
 
 ### HTTP Request
 
-`GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots`
+`https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots`
 
 ### Query Parameters
 
@@ -195,7 +191,7 @@ apiKey | The API key you received upon registration | string
 
 ## Get a Specific Bottle Shot
 
-> GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots/184745000126
+> https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots/184745000126 will return the following JSON:
 
 ```json
 {
@@ -221,11 +217,16 @@ This endpoint retrieves a specific bottle shot based on the product's GTIN.
 
 ### HTTP Request
 
-`GET https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots/{gtin}`
+`https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots/{gtin}`
 
 ### URI Parameters
 
 Parameter | Decription | Type
 --------- | ------- | -----------
 gtin | The GTIN of the product to retrieve | string
+
+### Query Parameters
+
+Parameter | Description | Type
+--------- | ------- | -----------
 apiKey | The API key you received upon registration | string

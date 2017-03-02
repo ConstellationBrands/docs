@@ -13,7 +13,6 @@ toc_footers:
 
 includes:
   - bottleShots
-  - worker
 
 search: true
 ---
