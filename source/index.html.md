@@ -8,7 +8,7 @@ title: Constellation Brands API Catalog
   - javascript*/
 
 toc_footers:
-  - <a href='mailto:api-support@cbrands.com'>Contact Us</a>
+  - <a href='mailto:api.support@cbrands.com'>Contact Us</a>
   - <p>&copy; 2017 Constellation Brands, Inc.</p>
 
 includes:
