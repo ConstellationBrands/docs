@@ -225,12 +225,14 @@ apiKey | The API key you received upon registration | string
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-          <div class="col-md-3">
-            <i class="fa fa-times-circle-o fa-4" aria-hidden="true"></i>
-          </div>
-          <div class="col-md-9">
-            <p style="padding-top: 5px;">Whoops! Looks like there was an error while sending your API key request.</p>
-            <p>Please contact us directly at <a href="mailto:api-support@cbrands.com">api-support@cbrands.com</a></p>
+          <div class="row">
+            <div class="col-md-2">
+              <h1><i class="fa fa-times-circle-o fa-4" aria-hidden="true"></i></h1>
+            </div>
+            <div class="col-md-10">
+              <p style="padding-top: 5px;">Whoops! Looks like there was an error while sending your API key request.</p>
+              <p>Please contact us directly at <a href="mailto:api-support@cbrands.com">api-support@cbrands.com</a></p>
+            </div>
           </div>
         </div>
       </div>
