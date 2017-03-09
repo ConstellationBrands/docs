@@ -18,99 +18,6 @@ The Bottle Shots API requires only an API key for authentication. Submit a reque
   <i class="fa fa-key wide-icon" aria-hidden="true"></i>Request an API Key
 </button>
 
-<div class="modal" id="requestKeyModal" tabindex="-1" role="dialog" aria-labelledby="requestKeyModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="requestKeyModalLabel">Request an API Key</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form id="requestForm" method="post">
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="apiSelect">Requested API</label>
-            <select class="form-control" id="apiSelect">
-              <option>Bottle Shots API</option>
-              <option>Worker Demographics API</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="name-input">Name</label>
-            <input class="form-control" type="text" id="name-input" name="name">
-          </div>
-          <div class="form-group">
-            <label for="email-input">Email address</label>
-            <input type="email" class="form-control" id="email-input" name="email">
-          </div>
-          <div class="form-group">
-            <label for="phone-input">Phone number</label>
-            <input type="tel" class="form-control" id="phone-input" name="phone">
-          </div>
-          <div class="form-group">
-            <label for="optional-input">Additional detail (optional)</label>
-            <textarea class="form-control" id="optional-input" rows="3" placeholder="Application name, estimated number of API calls, etc."></textarea>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary" id="submit">Request Key</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Success!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-2">
-              <h1><i class="fa fa-check-circle-o fa-4" aria-hidden="true"></i></h1>
-            </div>
-            <div class="col-md-10">
-              <p style="padding-top: 5px;">We received your request. We'll get back you you as soon as possible with an API key and additional instructions.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="failureModal" tabindex="-1" role="dialog" aria-labelledby="failureModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Something went wrong.</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="container-fluid">
-          <div class="col-md-3">
-            <i class="fa fa-times-circle-o fa-4" aria-hidden="true"></i>
-          </div>
-          <div class="col-md-9">
-            <p>Whoops! Looks like there was an error while sending your API key request.</p>
-            <p>Please contact us directly at <a href="mailto:api-support@cbrands.com">api-support@cbrands.com</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 ###Result Details
 The following attributes are returned by the Bottle Shots API:
 
@@ -189,6 +96,10 @@ Parameter | Description | Type
 dateModified | Retrieve all bottle shots modified after this time | datetime
 apiKey | The API key you received upon registration | string
 
+<aside class="warning">
+  This request requires an API key to be included in the query parameters.
+</aside>
+
 ## Get a Specific Bottle Shot
 
 > https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots/184745000126 will return the following JSON:
@@ -230,3 +141,99 @@ gtin | The GTIN of the product to retrieve | string
 Parameter | Description | Type
 --------- | ------- | -----------
 apiKey | The API key you received upon registration | string
+
+<aside class="warning">
+  This request requires an API key to be included in the query parameters.
+</aside>
+
+<div class="modal" id="requestKeyModal" tabindex="-1" role="dialog" aria-labelledby="requestKeyModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="requestKeyModalLabel">Request an API Key</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="requestForm" method="post">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="apiSelect">Requested API</label>
+            <select class="form-control" id="apiSelect" name="apiSelect">
+              <option>Bottle Shots API</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="name-input">Name</label>
+            <input class="form-control" type="text" id="name-input" name="name">
+          </div>
+          <div class="form-group">
+            <label for="email-input">Email address</label>
+            <input type="email" class="form-control" id="email-input" name="email">
+          </div>
+          <div class="form-group">
+            <label for="phone-input">Phone number</label>
+            <input type="tel" class="form-control" id="phone-input" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="optional-input">Additional detail (optional)</label>
+            <textarea class="form-control" id="optional-input" name="optional" rows="3" placeholder="Application name, estimated number of API calls, etc."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="submit">Request Key</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Success!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-2">
+              <h1><i class="fa fa-check-circle-o fa-4" aria-hidden="true"></i></h1>
+            </div>
+            <div class="col-md-10">
+              <p style="padding-top: 5px;">We received your request. We'll get back you you as soon as possible with an API key and additional instructions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="failureModal" tabindex="-1" role="dialog" aria-labelledby="failureModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Something went wrong.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="col-md-3">
+            <i class="fa fa-times-circle-o fa-4" aria-hidden="true"></i>
+          </div>
+          <div class="col-md-9">
+            <p style="padding-top: 5px;">Whoops! Looks like there was an error while sending your API key request.</p>
+            <p>Please contact us directly at <a href="mailto:api-support@cbrands.com">api-support@cbrands.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

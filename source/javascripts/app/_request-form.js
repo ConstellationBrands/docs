@@ -8,7 +8,7 @@ $(document).ready(function () {
 
     // Change to your service ID, or keep using the default service
     var service_id = "default_service";
-    var template_id = "worker_api_key_request";
+    var template_id = "api_key_request";
     requestForm.find("button#submit").text("Sending...");
     emailjs.sendForm(service_id,template_id,"requestForm")
       .then(function(){ 
