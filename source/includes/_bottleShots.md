@@ -1,6 +1,6 @@
 # <i class="fa fa-picture-o wide-icon" aria-hidden="true"></i>Bottle Shots API
 
-> https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots
+> https://api.cbrands.com/api/1.0/bottleShots
 
 This API returns promotional product images ("bottle shots") from the Constellation Brands Global Brand Center. It includes some identifying information about the product as well as a variety of image formats:
 
@@ -42,7 +42,7 @@ transparentPNG | URL for the full-size PNG bottle shot | string
 
 ## Get All Bottle Shots
 
-> https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots will return the following JSON:
+> https://api.cbrands.com/api/1.0/bottleShots will return the following JSON:
 
 ```json
 [
@@ -87,7 +87,7 @@ Retrieves all bottle shots that have been modified since the specified date.
 
 ### HTTP Request
 
-`https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots`
+`https://api.cbrands.com/api/1.0/bottleShots`
 
 ### Query Parameters
 
@@ -102,7 +102,7 @@ apiKey | The API key you received upon registration | string
 
 ## Get a Specific Bottle Shot
 
-> https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots/184745000126 will return the following JSON:
+> https://api.cbrands.com/api/1.0/bottleShots/184745000126 will return the following JSON:
 
 ```json
 {
@@ -128,7 +128,7 @@ This endpoint retrieves a specific bottle shot based on the product's GTIN.
 
 ### HTTP Request
 
-`https://api-bottleshots-internal-dev.cloudhub.io/api/1.0/bottleShots/{gtin}`
+`https://api.cbrands.com/api/1.0/bottleShots/{gtin}`
 
 ### URI Parameters
 
