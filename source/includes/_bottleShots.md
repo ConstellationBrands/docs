@@ -30,7 +30,8 @@ datePublished | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | strin
 dateModified | Date and time this bottle shot was last modified | string
 extension | File extension of the original image | string
 upc | Full UPC (barcode) value for the product | string
-brandFamily | Numeric brand family code for the product | string
+brandFamily | Brand family description for the product | string
+brand | Brand name description for the product | string
 varietal | Numeric varietal code | string
 vintage | Vintage year, if specified in Global Brand Center | string
 itemSize | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
@@ -47,7 +48,8 @@ transparentPNG | URL for the full-size PNG bottle shot | string
 ```json
 [
   {
-    "brandFamily": "754",
+    "brand": "Chateau Smith",
+    "brandFamily": "Charles Smith",
     "dateCreated": "2017-01-05T21:10:18Z",
     "dateModified": "2017-01-06T16:24:26Z",
     "datePublished": "2016-12-16T18:12:09Z",
@@ -59,12 +61,13 @@ transparentPNG | URL for the full-size PNG bottle shot | string
     "standardFinalJpeg": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/Standard Final JPG-CHS_Bottle_Shot.jpg",
     "thul": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/thul-7ECA50DA-3BF8-4872-9BC1D6B268CFD9F2.png",
     "upc": "184745000126",
-    "varietal": "198",
+    "varietal": "Cabernet Sauvignon",
     "vintage": "2014",
     "webImage": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/webimage-4D27936B-F803-4DC7-80DB39A24800A652.png"
   }
   {
-    "brandFamily": "754",
+    "brand": "Chateau Smith",
+    "brandFamily": "Charles Smith",
     "dateCreated": "2017-01-05T21:10:18Z",
     "dateModified": "2017-01-06T16:24:26Z",
     "datePublished": "2016-12-16T18:12:09Z",
@@ -76,7 +79,7 @@ transparentPNG | URL for the full-size PNG bottle shot | string
     "standardFinalJpeg": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/Standard Final JPG-CHS_Bottle_Shot.jpg",
     "thul": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/thul-7ECA50DA-3BF8-4872-9BC1D6B268CFD9F2.png",
     "upc": "184745000126",
-    "varietal": "198",
+    "varietal": "Cabernet Sauvignon",
     "vintage": "2014",
     "webImage": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/webimage-4D27936B-F803-4DC7-80DB39A24800A652.png"
   }
@@ -106,21 +109,22 @@ apiKey | The API key you received upon registration | string
 
 ```json
 {
-  "brandFamily": "754",
-  "dateCreated": "2017-01-05T21:10:18Z",
-  "dateModified": "2017-01-06T16:24:26Z",
-  "datePublished": "2016-12-16T18:12:09Z",
+  "brand": "Kim Crawford",
+  "brandFamily": "Kim Crawford",
+  "dateCreated": "2017-02-16T20:29:25Z",
+  "dateModified": "2017-02-16T20:29:53Z",
+  "datePublished": "2013-04-23T18:20:43Z",
   "extension": "psd",
-  "id": "9135BEC3-CF40-4819-B7C9C16DD7E92BF1",
+  "id": "EF550946-3A61-4B36-B238B6F6C36D7EB8",
   "itemSize": "219",
-  "miniImage": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/mini-0AA4663D-852F-4DA2-97877C3DF1AD6BA7.png",
-  "name": "2014 CHS Cabernet Sauvignon 750ml Bottle Shot",
-  "standardFinalJpeg": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/Standard Final JPG-CHS_Bottle_Shot.jpg",
-  "thul": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/thul-7ECA50DA-3BF8-4872-9BC1D6B268CFD9F2.png",
-  "upc": "184745000126",
-  "varietal": "198",
-  "vintage": "2014",
-  "webImage": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/webimage-4D27936B-F803-4DC7-80DB39A24800A652.png"
+  "miniImage": "https://d3cy9zhslanhfa.cloudfront.net/media/final/b9e2caeb-0bb0-446c-a32e-70c4904e8206/mini-C94F8787-B4BB-4899-95B2C5F56D22F85E.png",
+  "name": "2016 KIM Rosé 750ml Bottle Shot - New Package",
+  "standardFinalJpeg": "https://d3cy9zhslanhfa.cloudfront.net/media/final/b9e2caeb-0bb0-446c-a32e-70c4904e8206/Standard Final JPG-KIM_Rose_750ml_2016_CBI_30333.jpg",
+  "thul": "https://d3cy9zhslanhfa.cloudfront.net/media/final/b9e2caeb-0bb0-446c-a32e-70c4904e8206/thul-FA4E2B9F-DC56-4C0D-99442DC51BE1D0C5.png",
+  "upc": "",
+  "varietal": "Rose",
+  "vintage": "2016",
+  "webImage": "https://d3cy9zhslanhfa.cloudfront.net/media/final/b9e2caeb-0bb0-446c-a32e-70c4904e8206/webimage-B92EABA4-EB8B-4F73-A22664CE2D9D03C1.png"
 }
 ```
 
