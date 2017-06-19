@@ -385,14 +385,42 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>dateModified</td>
-<td>Retrieve all bottle shots modified after this time</td>
-<td>datetime</td>
-</tr>
-<tr>
 <td>apiKey</td>
 <td>The API key you received upon registration</td>
 <td>string</td>
+</tr>
+<tr>
+<td>numberOfRecords</td>
+<td>The number of records to retrieve - default 50 if not specified</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Offset page for results, return Nth set of results - default 1 if not specified</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<h3 id="header-variables">Header Variables</h3>
+
+<p>Header variables are optional and can be used instead of query parameters. Header variables will override query parameters if both are used.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-CBI-NumberOfRecords</td>
+<td>The number of records to retrieve - default 50 if not specified</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>X-CBI-Page</td>
+<td>Offset page for results, return Nth set of results - default 1 if not specified</td>
+<td>integer</td>
 </tr>
 </tbody></table>
 
