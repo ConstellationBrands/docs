@@ -115,9 +115,9 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="getting-started">Getting Started</h1>
+        <h1 id="public-apis">Public APIs</h1>
 
-<p>Constellation Brands APIs provide instant access to a variety of datasets including Items, Brands, and Worker Demographics. Explore the available APIs to see setup instructions and sample responses.</p>
+<p>Constellation Brands APIs provide instant access to a variety of datasets including Items, Brands, and Product Locations. Public APIs require a client id and client secret for authentication, but are available for use by anyone. Explore the available APIs below to see setup instructions and sample responses.</p>
 
 <h2 id="accessing-our-apis">Accessing Our APIs</h2>
 
@@ -442,6 +442,91 @@
 <aside class="warning">
   This request requires an API key to be included in the query parameters.
 </aside>
+
+<h1 id="brands-api">Brands API</h1>
+
+<p>Please see the <a href="https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/564b3d5d-bd16-4fe1-9d7e-1bfade9b4ee7/public/apis/9675201/versions/127487/files/root">Brands API RAML</a> for additional documentation.</p>
+
+<blockquote>
+<p>https://mocksvc.mulesoft.com/mocks/35b3ba86-a112-4d15-8714-8df2db082874/api/1.0</p>
+</blockquote>
+
+<h1 id="items-api">Items API</h1>
+
+<p>Please see the <a href="https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/564b3d5d-bd16-4fe1-9d7e-1bfade9b4ee7/public/apis/9835477/versions/129036/files/root">Items API RAML</a> for additional documentation.</p>
+
+<blockquote>
+<p>https://mocksvc.mulesoft.com/mocks/60329a89-e440-4f72-90cb-b6b0564f949e/api/1.0</p>
+</blockquote>
+
+<h1 id="product-locations-api"><i class="fa fa-map-marker wide-icon" aria-hidden="true"></i>Product Locations API</h1>
+
+<p>Responds with a list of retailers that sell the product specified within query parameters.</p>
+
+<blockquote>
+<p>https://api.cbrands.com/pl/productlocations</p>
+</blockquote>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>brandCode</td>
+<td>The brand code for the desired brand found in the brand/{#} response</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>varietalCode</td>
+<td>The varietal blend code found in the brand/{#} response</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>itemSizeDesc</td>
+<td>The item size descriptionfound in the brand/{#} response</td>
+<td>string</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>The latitude of the search center</td>
+<td>number</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>The longitude of the search center</td>
+<td>number</td>
+</tr>
+<tr>
+<td>radiusInMiles</td>
+<td>The number of miles to search from the search center</td>
+<td>number</td>
+</tr>
+<tr>
+<td>premiseTypeDesc</td>
+<td>The premise type description, used to categorize if the wine purchased is to be consumed on premise or off premise</td>
+<td>string</td>
+</tr>
+<tr>
+<td>stateRestriction</td>
+<td>I have no clue</td>
+<td>string</td>
+</tr>
+<tr>
+<td>from</td>
+<td>Used for pagination, the zero-based minimum record number to look from</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>to</td>
+<td>Used for pagination, the zero-based minimum record number to look to</td>
+<td>integer</td>
+</tr>
+</tbody></table>
 
 <div class="modal" id="requestKeyModal" tabindex="-1" role="dialog" aria-labelledby="requestKeyModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
