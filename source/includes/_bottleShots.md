@@ -34,12 +34,19 @@ brandFamily | Brand family description for the product | string
 brand | Brand name description for the product | string
 varietal | Numeric varietal code | string
 vintage | Vintage year, if specified in Global Brand Center | string
-itemSize | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
+itemSize | Product volume in mL, unless otherwise noted | string
 webImage | URL for the full-size PNG bottle shot | string
 miniImage | URL for the PNG thumbnail image | string
 standardFinalJpeg | URL for the full-size JPG bottle shot | string
 thul | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
 transparentPNG | URL for the full-size PNG bottle shot | string
+
+The response also includes the following header information:
+
+Variable | Description | Type
+--------- | ------- | -----------
+X-CBI-NumberOfRecords | The number of records requested - default 50 if not specified | integer
+X-CBI-Page | Offset page for results, Nth set of results - default 1 if not specified | integer
 
 ## Get All Bottle Shots
 
@@ -55,7 +62,7 @@ transparentPNG | URL for the full-size PNG bottle shot | string
     "datePublished": "2016-12-16T18:12:09Z",
     "extension": "psd",
     "id": "9135BEC3-CF40-4819-B7C9C16DD7E92BF1",
-    "itemSize": "219",
+    "itemSize": "750",
     "miniImage": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/mini-0AA4663D-852F-4DA2-97877C3DF1AD6BA7.png",
     "name": "2014 CHS Cabernet Sauvignon 750ml Bottle Shot",
     "standardFinalJpeg": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/Standard Final JPG-CHS_Bottle_Shot.jpg",
@@ -73,7 +80,7 @@ transparentPNG | URL for the full-size PNG bottle shot | string
     "datePublished": "2016-12-16T18:12:09Z",
     "extension": "psd",
     "id": "9135BEC3-CF40-4819-B7C9C16DD7E92BF1",
-    "itemSize": "219",
+    "itemSize": "750",
     "miniImage": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/mini-0AA4663D-852F-4DA2-97877C3DF1AD6BA7.png",
     "name": "2014 CHS Cabernet Sauvignon 750ml Bottle Shot",
     "standardFinalJpeg": "https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/Standard Final JPG-CHS_Bottle_Shot.jpg",
@@ -116,7 +123,7 @@ apiKey | The API key you received upon registration | string
   "datePublished": "2013-04-23T18:20:43Z",
   "extension": "psd",
   "id": "EF550946-3A61-4B36-B238B6F6C36D7EB8",
-  "itemSize": "219",
+  "itemSize": "750",
   "miniImage": "https://d3cy9zhslanhfa.cloudfront.net/media/final/b9e2caeb-0bb0-446c-a32e-70c4904e8206/mini-C94F8787-B4BB-4899-95B2C5F56D22F85E.png",
   "name": "2016 KIM Rosé 750ml Bottle Shot - New Package",
   "standardFinalJpeg": "https://d3cy9zhslanhfa.cloudfront.net/media/final/b9e2caeb-0bb0-446c-a32e-70c4904e8206/Standard Final JPG-KIM_Rose_750ml_2016_CBI_30333.jpg",
@@ -145,6 +152,17 @@ gtin | The GTIN of the product to retrieve | string
 Parameter | Description | Type
 --------- | ------- | -----------
 apiKey | The API key you received upon registration | string
+numberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+page | Offset page for results, return Nth set of results - default 1 if not specified | integer
+
+### Header Variables
+
+Header variables are optional and can be used instead of query parameters. Header variables will override query parameters if both are used.
+
+Variable | Description | Type
+--------- | ------- | -----------
+X-CBI-NumberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+X-CBI-Page | Offset page for results, return Nth set of results - default 1 if not specified | integer
 
 <aside class="warning">
   This request requires an API key to be included in the query parameters.
