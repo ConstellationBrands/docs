@@ -115,9 +115,9 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="public-apis">Public APIs</h1>
+        <h1 id="getting-started">Getting Started</h1>
 
-<p>Constellation Brands APIs provide instant access to a variety of datasets including Items, Brands, and Product Locations. Public APIs require a client id and client secret for authentication, but are available for use by anyone. Explore the available APIs below to see setup instructions and sample responses.</p>
+<p>Constellation Brands APIs provide instant access to a variety of datasets including Items, Brands, and Worker Demographics. Explore the available APIs to see setup instructions and sample responses.</p>
 
 <h2 id="accessing-our-apis">Accessing Our APIs</h2>
 
@@ -272,7 +272,7 @@
 </tr>
 <tr>
 <td>itemSize</td>
-<td>Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt</td>
+<td>Product volume in mL, unless otherwise noted</td>
 <td>string</td>
 </tr>
 <tr>
@@ -302,6 +302,27 @@
 </tr>
 </tbody></table>
 
+<p>The response also includes the following header information:</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-CBI-NumberOfRecords</td>
+<td>The number of records requested - default 50 if not specified</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>X-CBI-Page</td>
+<td>Offset page for results, Nth set of results - default 1 if not specified</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-all-bottle-shots">Get All Bottle Shots</h2>
 
 <blockquote>
@@ -316,7 +337,7 @@
     </span><span class="nt">"datePublished"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T18:12:09Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"psd"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9135BEC3-CF40-4819-B7C9C16DD7E92BF1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"itemSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"219"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"itemSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"750"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"miniImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/mini-0AA4663D-852F-4DA2-97877C3DF1AD6BA7.png"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014 CHS Cabernet Sauvignon 750ml Bottle Shot"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"standardFinalJpeg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/Standard Final JPG-CHS_Bottle_Shot.jpg"</span><span class="p">,</span><span class="w">
@@ -334,7 +355,7 @@
     </span><span class="nt">"datePublished"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T18:12:09Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"psd"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9135BEC3-CF40-4819-B7C9C16DD7E92BF1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"itemSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"219"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"itemSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"750"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"miniImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/mini-0AA4663D-852F-4DA2-97877C3DF1AD6BA7.png"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014 CHS Cabernet Sauvignon 750ml Bottle Shot"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"standardFinalJpeg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/5be7df2b-2a56-417f-84fe-dec1227f9116/Standard Final JPG-CHS_Bottle_Shot.jpg"</span><span class="p">,</span><span class="w">
@@ -390,7 +411,7 @@
   </span><span class="nt">"datePublished"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-04-23T18:20:43Z"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"psd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EF550946-3A61-4B36-B238B6F6C36D7EB8"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"itemSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"219"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"itemSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"750"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"miniImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/b9e2caeb-0bb0-446c-a32e-70c4904e8206/mini-C94F8787-B4BB-4899-95B2C5F56D22F85E.png"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016 KIM Rosé 750ml Bottle Shot - New Package"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"standardFinalJpeg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/final/b9e2caeb-0bb0-446c-a32e-70c4904e8206/Standard Final JPG-KIM_Rose_750ml_2016_CBI_30333.jpg"</span><span class="p">,</span><span class="w">
@@ -437,96 +458,44 @@
 <td>The API key you received upon registration</td>
 <td>string</td>
 </tr>
+<tr>
+<td>numberOfRecords</td>
+<td>The number of records to retrieve - default 50 if not specified</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Offset page for results, return Nth set of results - default 1 if not specified</td>
+<td>integer</td>
+</tr>
 </tbody></table>
 
-<aside class="warning">
-  This request requires an API key to be included in the query parameters.
-</aside>
+<h3 id="header-variables">Header Variables</h3>
 
-<h1 id="brands-api">Brands API</h1>
-
-<p>Please see the <a href="https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/564b3d5d-bd16-4fe1-9d7e-1bfade9b4ee7/public/apis/9675201/versions/127487/files/root">Brands API RAML</a> for additional documentation.</p>
-
-<blockquote>
-<p>https://mocksvc.mulesoft.com/mocks/35b3ba86-a112-4d15-8714-8df2db082874/api/1.0</p>
-</blockquote>
-
-<h1 id="items-api">Items API</h1>
-
-<p>Please see the <a href="https://anypoint.mulesoft.com/apiplatform/repository/v2/organizations/564b3d5d-bd16-4fe1-9d7e-1bfade9b4ee7/public/apis/9835477/versions/129036/files/root">Items API RAML</a> for additional documentation.</p>
-
-<blockquote>
-<p>https://mocksvc.mulesoft.com/mocks/60329a89-e440-4f72-90cb-b6b0564f949e/api/1.0</p>
-</blockquote>
-
-<h1 id="product-locations-api"><i class="fa fa-map-marker wide-icon" aria-hidden="true"></i>Product Locations API</h1>
-
-<p>Responds with a list of retailers that sell the product specified within query parameters.</p>
-
-<blockquote>
-<p>https://api.cbrands.com/pl/productlocations</p>
-</blockquote>
-
-<h3 id="query-parameters">Query Parameters</h3>
+<p>Header variables are optional and can be used instead of query parameters. Header variables will override query parameters if both are used.</p>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Variable</th>
 <th>Description</th>
 <th>Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>brandCode</td>
-<td>The brand code for the desired brand found in the brand/{#} response</td>
+<td>X-CBI-NumberOfRecords</td>
+<td>The number of records to retrieve - default 50 if not specified</td>
 <td>integer</td>
 </tr>
 <tr>
-<td>varietalCode</td>
-<td>The varietal blend code found in the brand/{#} response</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>itemSizeDesc</td>
-<td>The item size descriptionfound in the brand/{#} response</td>
-<td>string</td>
-</tr>
-<tr>
-<td>latitude</td>
-<td>The latitude of the search center</td>
-<td>number</td>
-</tr>
-<tr>
-<td>longitude</td>
-<td>The longitude of the search center</td>
-<td>number</td>
-</tr>
-<tr>
-<td>radiusInMiles</td>
-<td>The number of miles to search from the search center</td>
-<td>number</td>
-</tr>
-<tr>
-<td>premiseTypeDesc</td>
-<td>The premise type description, used to categorize if the wine purchased is to be consumed on premise or off premise</td>
-<td>string</td>
-</tr>
-<tr>
-<td>stateRestriction</td>
-<td>I have no clue</td>
-<td>string</td>
-</tr>
-<tr>
-<td>from</td>
-<td>Used for pagination, the zero-based minimum record number to look from</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>to</td>
-<td>Used for pagination, the zero-based minimum record number to look to</td>
+<td>X-CBI-Page</td>
+<td>Offset page for results, return Nth set of results - default 1 if not specified</td>
 <td>integer</td>
 </tr>
 </tbody></table>
+
+<aside class="warning">
+  This request requires an API key to be included in the query parameters.
+</aside>
 
 <div class="modal" id="requestKeyModal" tabindex="-1" role="dialog" aria-labelledby="requestKeyModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
