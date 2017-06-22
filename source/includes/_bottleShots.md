@@ -41,6 +41,7 @@ standardFinalJpeg | URL for the full-size JPG bottle shot | string
 thul | Lorem ipsum dolor sit amet, cu eos sumo graecis deserunt | string
 transparentPNG | URL for the full-size PNG bottle shot | string
 
+###Result Headers
 The response also includes the following header information:
 
 Variable | Description | Type
@@ -103,8 +104,19 @@ Retrieves all bottle shots that have been modified since the specified date.
 
 Parameter | Description | Type
 --------- | ------- | -----------
-dateModified | Retrieve all bottle shots modified after this time | datetime
 apiKey | The API key you received upon registration | string
+dateModified | Retrieve bottle shots modified after this date. ISO8601 format: yyyy-mm-ddThh:mm:ssZ. Example: 2016-12-25T10:30:00Z | string
+numberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+page | Offset page for results, return Nth set of results - default 1 if not specified | integer
+
+### Header Variables
+
+Header variables are optional and can be used instead of query parameters. Header variables will override query parameters if both are used.
+
+Variable | Description | Type
+--------- | ------- | -----------
+X-CBI-NumberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+X-CBI-Page | Offset page for results, return Nth set of results - default 1 if not specified | integer
 
 <aside class="warning">
   This request requires an API key to be included in the query parameters.
