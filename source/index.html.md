@@ -13,6 +13,7 @@ toc_footers:
 
 includes:
   - bottleShots
+  - product
 
 search: true
 ---

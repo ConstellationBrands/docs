@@ -195,6 +195,7 @@ X-CBI-Page | Offset page for results, return Nth set of results - default 1 if n
             <label for="apiSelect">Requested API</label>
             <select class="form-control" id="apiSelect" name="apiSelect">
               <option>Bottle Shots API</option>
+			  <option>Product API</option>
             </select>
           </div>
           <div class="form-group">
