@@ -31,8 +31,7 @@ Most Constellation Brands APIs require an API key. Some APIs containing sensitiv
 > Example API request in cURL using only an API key:
 
 ```shell
-curl "https://mocksvc.mulesoft.com/mocks/60329a89-e440-4f72-90cb-b6b0564f949e/api/1.0/1002"
-  -H "Authorization: YourAPIKey"
+curl "https://mocksvc.mulesoft.com/mocks/60329a89-e440-4f72-90cb-b6b0564f949e/api/1.0/1002?apiKey=YourAPIKey"
 ```
 
 > The above command returns the following JSON:
@@ -56,14 +55,13 @@ curl "https://mocksvc.mulesoft.com/mocks/60329a89-e440-4f72-90cb-b6b0564f949e/ap
 }
 ```
 
-1. <a href="#">Request an API key</a> by providing information about your application
+1. Request an API key by providing information about your application
 2. The Constellation Brands API team will review your request and respond via email with credentials to access the API
-3. Make an API request with the following header attributes (if required) to authenticate your call:
+3. Make an API request with the following query parameter (if required) to authenticate your call:
 
-Header Name | Description | Example
+Query Parameter Name | Description | Example
 -------------- | -------------- | --------------
-client_id | ID provided by CBI upon registration | 4eb335ddb09f56260ec913551b2496ac
-client_secret | Password provided by CBI upon registration | a822f98b5a468de741773710f7925141
+apiKey | ID provided by CBI upon registration | 4eb335ddb09f56260ec913551b2496ac
 
 <aside class="notice">
   Some APIs do not require a client ID or secret.
