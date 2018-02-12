@@ -128,8 +128,7 @@
 <blockquote>
 <p>Example API request in cURL using only an API key:</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://mocksvc.mulesoft.com/mocks/60329a89-e440-4f72-90cb-b6b0564f949e/api/1.0/1002"</span>
-  -H <span class="s2">"Authorization: YourAPIKey"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://mocksvc.mulesoft.com/mocks/60329a89-e440-4f72-90cb-b6b0564f949e/api/1.0/1002?apiKey=YourAPIKey"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns the following JSON:</p>
@@ -152,27 +151,22 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <ol>
-<li><a href="#">Request an API key</a> by providing information about your application</li>
+<li>Request an API key by providing information about your application</li>
 <li>The Constellation Brands API team will review your request and respond via email with credentials to access the API</li>
-<li>Make an API request with the following header attributes (if required) to authenticate your call:</li>
+<li>Make an API request with the following query parameter (if required) to authenticate your call:</li>
 </ol>
 
 <table><thead>
 <tr>
-<th>Header Name</th>
+<th>Query Parameter Name</th>
 <th>Description</th>
 <th>Example</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>client_id</td>
+<td>apiKey</td>
 <td>ID provided by CBI upon registration</td>
 <td>4eb335ddb09f56260ec913551b2496ac</td>
-</tr>
-<tr>
-<td>client_secret</td>
-<td>Password provided by CBI upon registration</td>
-<td>a822f98b5a468de741773710f7925141</td>
 </tr>
 </tbody></table>
 
@@ -546,6 +540,482 @@
           <div class="form-group">
             <label for="apiSelect">Requested API</label>
             <select class="form-control" id="apiSelect" name="apiSelect">
+              <option>Bottle Shots API</option>
+              <option>Product API</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="name-input">Name</label>
+            <input class="form-control" type="text" id="name-input" name="name">
+          </div>
+          <div class="form-group">
+            <label for="email-input">Email address</label>
+            <input type="email" class="form-control" id="email-input" name="email">
+          </div>
+          <div class="form-group">
+            <label for="phone-input">Phone number</label>
+            <input type="tel" class="form-control" id="phone-input" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="optional-input">Additional detail (optional)</label>
+            <textarea class="form-control" id="optional-input" name="optional" rows="3" placeholder="Application name, estimated number of API calls, etc."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="submit">Request Key</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Success!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-2">
+              <h1><i class="fa fa-check-circle-o fa-4" aria-hidden="true"></i></h1>
+            </div>
+            <div class="col-md-10">
+              <p style="padding-top: 5px;">We received your request. We&rsquo;ll get back you you as soon as possible with an API key and additional instructions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="failureModal" tabindex="-1" role="dialog" aria-labelledby="failureModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Something went wrong.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-2">
+              <h1><i class="fa fa-times-circle-o fa-4" aria-hidden="true"></i></h1>
+            </div>
+            <div class="col-md-10">
+              <p style="padding-top: 5px;">Whoops! Looks like there was an error while sending your API key request.</p>
+              <p>Please contact us directly at <a href="mailto:api-support@cbrands.com">api-support@cbrands.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+          <h1 id="product-api"><i class="fa fa-picture-o wide-icon" aria-hidden="true"></i>Product API</h1>
+
+<blockquote>
+<p>https://api.cbrands.com/v3/items</p>
+</blockquote>
+
+<p>This API returns information about our Products including, but not limited to:</p>
+
+<ul>
+<li>Item identification information (SKUs, UPCs, GTINs, COLAs, etc)</li>
+<li>Item descriptions</li>
+<li>Varietal information</li>
+<li>Item sizes</li>
+<li>Digital assets (bottle shots, tasting notes)</li>
+</ul>
+
+<h3 id="authentication">Authentication</h3>
+
+<p>The Product API requires only an API key for authentication. Submit a request for a key and use it as shown in the requests below.</p>
+
+<p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestKeyModal">
+  <i class="fa fa-key wide-icon" aria-hidden="true"></i>Request an API Key
+</button></p>
+
+<h2 id="get-all-items">Get All Items</h2>
+
+<blockquote>
+<p>https://api.cbrands.com/v3/items will return the following JSON:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shortCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HERM FORW ICB 750/12"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"longCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"003202"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"longDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"masterSkuDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HERM FORW ICB 750/12"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"masterSkuCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"003202"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"subBrandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1376"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"subBrandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HERMIT"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"327"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HERMIT"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandFamilyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"296"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandFamilyDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HERMIT"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandOwnerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"103"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandOwnerDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONSTELLATION BRANDS CANADA, INC."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"upcNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"006365700360"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"gtin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"063657003602"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"masterPackageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"327-219-999"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"masterPackageDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HERMIT 750 N/A"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"universalSkuCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22894"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"universalSkuDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HERMIT APERA 750ML"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"beverageType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WINE"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"varietalBlendCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"varietalBlendDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FORTIFIED WINE"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"varietalClassCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"varietalClassDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N/A"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"accountSegmentSubBrandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNK"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"accountSegmentSubBrandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vintageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vintageDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N/A"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"packageTypeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"packageTypeDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GLASS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"singleServePackage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item02Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item01Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item02Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"003202"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item01Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HERM FORW ICB 750/12"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shortCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INNA EST RIES VQA 750/12"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"longCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"083790"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"longDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"masterSkuDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INNA EST RIES VQA 750/12"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"masterSkuCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"083790"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"subBrandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2391"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"subBrandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INNISKILLIN NIAGARA EST COL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"343"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INNISKILLIN NIAGARA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandFamilyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"309"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandFamilyDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INNISKILLIN"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandOwnerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"103"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandOwnerDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONSTELLATION BRANDS CANADA, INC."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"upcNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"062065402001"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"gtin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"620654020010"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"masterPackageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"343-219-999"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"masterPackageDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INNISKILLIN NIAGARA 750 N/A"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"universalSkuCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23011"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"universalSkuDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INNISKILLIN NIAGARA EST COL RIESLING 750ML"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"beverageType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WINE"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"varietalBlendCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"632"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"varietalBlendDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RIESLING"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"varietalClassCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"varietalClassDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N/A"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"accountSegmentSubBrandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNK"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"accountSegmentSubBrandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vintageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vintageDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N/A"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"packageTypeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"packageTypeDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GLASS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"singleServePackage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item02Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item01Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item02Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"083790"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item01Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INNA EST RIES VQA 750/12"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100806"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shortCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100806"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WB SVB CA 750/12 2CL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"longCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100806"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"longDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA 2CL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"masterSkuDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WB SVB CA 750/12"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"masterSkuCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80002186"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"subBrandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1917"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"subBrandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOODBRIDGE BY ROBERT MONDAVI"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"631"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOODBRIDGE BY ROBERT MONDAVI"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandFamilyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"466"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandFamilyDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ROBERT MONDAVI"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandOwnerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"brandOwnerDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONSTELLATION BRANDS US OPERATIONS, INC"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"upcNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"008600386186"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"gtin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"086003861862"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"masterPackageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"631-219-999"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"masterPackageDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOODBRIDGE BY ROBERT MONDAVI 750 N/A"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"universalSkuCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21715"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"universalSkuDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOODBRIDGE BY ROBERT MONDAVI SAUVIGNON BLANC 750ML"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"beverageType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WINE"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"varietalBlendCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"667"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"varietalBlendDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAUVIGNON BLANC"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"varietalClassCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"114"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"varietalClassDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FUME/SAUVIGNON BLANC"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"accountSegmentSubBrandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"138"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"accountSegmentSubBrandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOODBRIDGE BY ROBERT MONDAVI 750ML"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vintageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vintageDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N/A"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"packageTypeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"packageTypeDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GLASS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"singleServePackage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item02Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA 2CL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item01Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100806"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item02Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100806"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item01Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WB SVB CA 750/12 2CL"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Retrieves all items, limited to a specified (or defaulted) number of records.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">https://api.cbrands.com/v3/items</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>apiKey</td>
+<td>The API key you received upon registration</td>
+<td>string</td>
+</tr>
+<tr>
+<td>numberOfRecords</td>
+<td>The number of records to retrieve - default 50 if not specified</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>recordIndex</td>
+<td>The index of the first record to return (1 based) - default 1 if not specified</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+  This request requires an API key to be included in the query parameters.
+</aside>
+
+<h2 id="get-a-specific-item">Get a Specific Item</h2>
+
+<blockquote>
+<p>https://api.cbrands.com/v3/items/100806 will return the following JSON:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100806"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shortCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100806"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WB SVB CA 750/12 2CL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"longCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100806"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"longDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA 2CL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"masterSkuDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WB SVB CA 750/12"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"masterSkuCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80002186"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"subBrandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1917"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"subBrandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOODBRIDGE BY ROBERT MONDAVI"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"brandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"631"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"brandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOODBRIDGE BY ROBERT MONDAVI"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"brandFamilyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"466"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"brandFamilyDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ROBERT MONDAVI"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"brandOwnerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"brandOwnerDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONSTELLATION BRANDS US OPERATIONS, INC"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"upcNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"008600386186"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"gtin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"086003861862"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"masterPackageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"631-219-999"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"masterPackageDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOODBRIDGE BY ROBERT MONDAVI 750 N/A"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"universalSkuCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21715"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"universalSkuDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOODBRIDGE BY ROBERT MONDAVI SAUVIGNON BLANC 750ML"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"beverageType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WINE"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"varietalBlendCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"667"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"varietalBlendDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAUVIGNON BLANC"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"varietalClassCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"114"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"varietalClassDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FUME/SAUVIGNON BLANC"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"accountSegmentSubBrandCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"138"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"accountSegmentSubBrandDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WOODBRIDGE BY ROBERT MONDAVI 750ML"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"vintageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"vintageDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N/A"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"packageTypeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"packageTypeDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GLASS"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"singleServePackage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item02Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA 2CL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item01Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100806"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item02Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100806"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"item01Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WB SVB CA 750/12 2CL"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific item based on the item&rsquo;s id.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">https://api.cbrands.com/v3/items/{itemId}</code></p>
+
+<h3 id="uri-parameters">URI Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Decription</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>itemId</td>
+<td>The ID of the item to retrieve</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>apiKey</td>
+<td>The API key you received upon registration</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-an-item-39-s-digital-assets">Get an Item&rsquo;s Digital Assets</h2>
+
+<blockquote>
+<p>https://api.cbrands.com/v3/items/100806/digitalAssets will return the following JSON:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"bottleShots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Woodbridge by Robert Mondavi"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"brandFamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Robert Mondavi"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-19T16:09:49Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"dateModified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-31T14:52:03Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"datePublished"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-19T19:02:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"psd"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E8AB533B-905E-45C8-8529B6968612A879"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"itemSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"750"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"miniImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/E8AB533B-905E-45C8-8529B6968612A879/C035386D-3C5D-4143-9865629944AE141B/mini-00895962-0507-4A92-B5FFBBE37835C3D6.png"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WBR Sauvignon Blanc 750ml Bottle Shot with Capsule"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"standardFinalJpeg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/E8AB533B-905E-45C8-8529B6968612A879/Standard Final JPG-WBR_750ml_SauvBlanc_wcapsule_NV.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/E8AB533B-905E-45C8-8529B6968612A879/C035386D-3C5D-4143-9865629944AE141B/thul-0D228C38-39B1-4C21-AFF1232D430B6DD0.png"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"upc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"086003861862"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"varietal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sauvignon Blanc"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vintage"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"webImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/E8AB533B-905E-45C8-8529B6968612A879/C035386D-3C5D-4143-9865629944AE141B/webimage-5B3DA1F1-13EC-490B-9C1F1F089F22CA50.png"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"transparentPNG"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"tastingNotes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BB60D46A-6A83-45FF-ACFAFD865D696285"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016 WBR Sauvignon Blanc NSRP Tasting Note"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-13T23:06:17Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"datePublished"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-13T18:39:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"dateModified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05T19:08:29Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PDF"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tastingFlavor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"blend"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ph"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"residualSugars"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"webImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/BB60D46A-6A83-45FF-ACFAFD865D696285/webimage-5E087897-DA1E-42FE-AD9C04E6CBC890E5.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"miniImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/BB60D46A-6A83-45FF-ACFAFD865D696285/mini-0BF927F1-585E-4822-990826B880397D77.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"standardFinalJpeg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"high"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/BB60D46A-6A83-45FF-ACFAFD865D696285/thul-AED1F202-7217-498D-8E27FF077EC9DD02.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"webPNG"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"transparentPNG"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39450C12-1710-4378-A61A854D2F8B6B04"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015 WBR Sauvignon Blanc NSRP Tasting Note"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-24T14:51:14Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"datePublished"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-21T17:21:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"dateModified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-05T19:07:57Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tastingFlavor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"blend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77% Sauvignon Blanc, 13% French Colombard, 9% Verdelho, 1% Chardonnay "</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ph"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.31"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"residualSugars"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.7"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"webImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/39450C12-1710-4378-A61A854D2F8B6B04/webimage-4DCC506D-2A05-4D09-A24E5CA167A12490.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"miniImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/39450C12-1710-4378-A61A854D2F8B6B04/mini-9AAFC246-31C5-4E8C-8B4CE61B33AD9212.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"standardFinalJpeg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"high"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/39450C12-1710-4378-A61A854D2F8B6B04/thul-9C1440D1-0DC9-44E8-AF96711CCD163F4E.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"webPNG"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"transparentPNG"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves an item&rsquo;s available digital assets, including bottle shots and tasting notes.
+Both arrays of bottle shots and tasting notes contain objects that have contextual information about the digital asset as well as different sized images of the assets.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">https://api.cbrands.com/v3/items/{itemId}/digitalAssets</code></p>
+
+<h3 id="uri-parameters">URI Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Decription</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>itemId</td>
+<td>The ID of the item to retrieve digital assets for</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>apiKey</td>
+<td>The API key you received upon registration</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+  This request requires an API key to be included in the query parameters.
+</aside>
+
+<div class="modal" id="requestKeyModal" tabindex="-1" role="dialog" aria-labelledby="requestKeyModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="requestKeyModalLabel">Request an API Key</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="requestForm" method="post">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="apiSelect">Requested API</label>
+            <select class="form-control" id="apiSelect" name="apiSelect">
+              <option>Product API</option>
               <option>Bottle Shots API</option>
             </select>
           </div>
