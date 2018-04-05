@@ -2,7 +2,7 @@
 
 > https://api.cbrands.com/api/1.0/bottleShots
 
-This API returns promotional product images ("bottle shots") from the Constellation Brands Global Brand Center. It includes some identifying information about the product as well as a variety of image formats:
+This API returns promotional digital assets ("bottle shots", "tasting notes", etc) from the Constellation Brands Global Brand Center. It includes some identifying information about the product as well as a variety of image formats:
 
 * Mini image (PNG)
 * Standard final JPEG (JPG)
@@ -164,6 +164,276 @@ gtin | The GTIN of the product to retrieve | string
 Parameter | Description | Type
 --------- | ------- | -----------
 apiKey | The API key you received upon registration | string
+numberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+page | Offset page for results, return Nth set of results - default 1 if not specified | integer
+
+### Header Variables
+
+Header variables are optional and can be used instead of query parameters. Header variables will override query parameters if both are used.
+
+Variable | Description | Type
+--------- | ------- | -----------
+X-CBI-NumberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+X-CBI-Page | Offset page for results, return Nth set of results - default 1 if not specified | integer
+
+<aside class="warning">
+  This request requires an API key to be included in the query parameters.
+</aside>
+
+## Get All Tasting Notes
+
+> https://api.cbrands.com/api/1.0/tastingNotes will return the following JSON:
+
+```json
+[
+    {
+        "brand": "Ruffino",
+        "brandFamily": null,
+        "dateCreated": "2018-04-02T22:44:33Z",
+        "dateModified": "2018-04-02T22:44:33Z",
+        "datePublished": "2018-04-02T17:08:10Z",
+        "extension": "pdf",
+        "id": "0BCBCCCB-A231-4E85-81AAB1915E99C880",
+        "itemSize": "",
+        "miniImage": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/0BCBCCCB-A231-4E85-81AAB1915E99C880/mini-401AEAAA-FFB9-4C5C-AF8B63B531BAC5A5.jpg",
+        "name": "2015 RUF Alauda Toscana NSRP Tasting Note",
+        "thul": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/0BCBCCCB-A231-4E85-81AAB1915E99C880/thul-A4C23CB6-6AA9-4F6B-A71CC1E00E0C2903.jpg",
+        "upc": "",
+        "varietal": null,
+        "vintage": "2015",
+        "webImage": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/0BCBCCCB-A231-4E85-81AAB1915E99C880/webimage-07B95B8A-2C8D-4B19-A219F3C3EC0AD223.jpg"
+    }
+]
+```
+
+Retrieves all tasting notes that have been modified since the specified date.
+
+### HTTP Request
+
+`https://api.cbrands.com/api/1.0/tastingNotes`
+
+### Query Parameters
+
+Parameter | Description | Type
+--------- | ------- | -----------
+apiKey | The API key you received upon registration | string
+dateModified | Retrieve bottle shots modified after this date. ISO8601 format: yyyy-mm-ddThh:mm:ssZ. Example: 2016-12-25T10:30:00Z | string
+numberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+page | Offset page for results, return Nth set of results - default 1 if not specified | integer
+
+### Header Variables
+
+Header variables are optional and can be used instead of query parameters. Header variables will override query parameters if both are used.
+
+Variable | Description | Type
+--------- | ------- | -----------
+X-CBI-NumberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+X-CBI-Page | Offset page for results, return Nth set of results - default 1 if not specified | integer
+
+<aside class="warning">
+  This request requires an API key to be included in the query parameters.
+</aside>
+
+## Get All Hot Sheets
+
+> https://api.cbrands.com/api/1.0/hotSheets will return the following JSON:
+
+```json
+[
+    {
+        "brand": "SIMI",
+        "brandFamily": null,
+        "dateCreated": "2018-03-30T12:02:59Z",
+        "dateModified": "2018-03-30T12:02:59Z",
+        "datePublished": "2018-03-29T13:24:10Z",
+        "extension": "pdf",
+        "id": "9124619A-4610-489A-B34ACC039932A525",
+        "itemSize": "750",
+        "miniImage": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/9124619A-4610-489A-B34ACC039932A525/mini-B729B00F-DE7B-42D6-BA52C84221D65DE0.jpg",
+        "name": "2014 SIMI Landslide Cabernet Sauvignon Hot Sheet Decanter Magazine 90 Points Highly Recommended Award",
+        "thul": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/9124619A-4610-489A-B34ACC039932A525/thul-D46AB21D-4982-4DE9-A84BC2CE549E2B3E.jpg",
+        "upc": "",
+        "varietal": "Cabernet Sauvignon",
+        "vintage": "2014",
+        "webImage": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/9124619A-4610-489A-B34ACC039932A525/webimage-17EB3220-D30B-43B0-B296DA44E2C3AF79.jpg"
+    }
+]
+```
+
+Retrieves all Hot Sheets that have been modified since the specified date.
+
+### HTTP Request
+
+`https://api.cbrands.com/api/1.0/hotSheets`
+
+### Query Parameters
+
+Parameter | Description | Type
+--------- | ------- | -----------
+apiKey | The API key you received upon registration | string
+dateModified | Retrieve bottle shots modified after this date. ISO8601 format: yyyy-mm-ddThh:mm:ssZ. Example: 2016-12-25T10:30:00Z | string
+numberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+page | Offset page for results, return Nth set of results - default 1 if not specified | integer
+
+### Header Variables
+
+Header variables are optional and can be used instead of query parameters. Header variables will override query parameters if both are used.
+
+Variable | Description | Type
+--------- | ------- | -----------
+X-CBI-NumberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+X-CBI-Page | Offset page for results, return Nth set of results - default 1 if not specified | integer
+
+<aside class="warning">
+  This request requires an API key to be included in the query parameters.
+</aside>
+
+## Get All Shelf Talkers
+
+> https://api.cbrands.com/api/1.0/shelfTalkers will return the following JSON:
+
+```json
+[
+    {
+        "brand": "SIMI",
+        "brandFamily": null,
+        "dateCreated": "2018-03-30T12:02:59Z",
+        "dateModified": "2018-04-02T12:45:46Z",
+        "datePublished": "2018-03-29T13:30:23Z",
+        "extension": "pdf",
+        "id": "25FBD197-0C87-44ED-AC867E8AE83657B8",
+        "itemSize": "750",
+        "miniImage": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/25FBD197-0C87-44ED-AC867E8AE83657B8/mini-2AFD7351-C935-4F71-819D35C20562350F.jpg",
+        "name": "2014 SIMI Landslide Cabernet Sauvignon Shelf Talker Decanter Magazine 90 Points Highly Recommended Award",
+        "thul": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/25FBD197-0C87-44ED-AC867E8AE83657B8/thul-5D012650-9C13-45C7-8EE0095927955C2D.jpg",
+        "upc": "",
+        "varietal": "Cabernet Sauvignon",
+        "vintage": "2014",
+        "webImage": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/25FBD197-0C87-44ED-AC867E8AE83657B8/webimage-CF8D6B93-2318-4869-95DA8CB9652E076B.jpg"
+    }
+]
+```
+
+Retrieves all shelf talkers that have been modified since the specified date.
+
+### HTTP Request
+
+`https://api.cbrands.com/api/1.0/shelfTalkers`
+
+### Query Parameters
+
+Parameter | Description | Type
+--------- | ------- | -----------
+apiKey | The API key you received upon registration | string
+dateModified | Retrieve bottle shots modified after this date. ISO8601 format: yyyy-mm-ddThh:mm:ssZ. Example: 2016-12-25T10:30:00Z | string
+numberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+page | Offset page for results, return Nth set of results - default 1 if not specified | integer
+
+### Header Variables
+
+Header variables are optional and can be used instead of query parameters. Header variables will override query parameters if both are used.
+
+Variable | Description | Type
+--------- | ------- | -----------
+X-CBI-NumberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+X-CBI-Page | Offset page for results, return Nth set of results - default 1 if not specified | integer
+
+<aside class="warning">
+  This request requires an API key to be included in the query parameters.
+</aside>
+
+## Get All Neck Hangers
+
+> https://api.cbrands.com/api/1.0/neckHangers will return the following JSON:
+
+```json
+[
+    {
+        "brand": "Spoken Barrel",
+        "brandFamily": null,
+        "dateCreated": "2018-02-16T21:00:22Z",
+        "dateModified": "2018-02-16T21:00:22Z",
+        "datePublished": "2018-02-15T16:02:09Z",
+        "extension": "pdf",
+        "id": "6C1D7642-BB7C-4CCC-B0183782BFD5986B",
+        "itemSize": "",
+        "miniImage": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/6C1D7642-BB7C-4CCC-B0183782BFD5986B/mini-3A3FFA99-FF24-4293-9DE111DB7BBE5F49.jpg",
+        "name": "2015 SPO Meritage String Tie Necker 2018 Tastings.com World Wine Championships Silver Medal 89 Points",
+        "thul": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/6C1D7642-BB7C-4CCC-B0183782BFD5986B/thul-D47A4CCC-DE42-477D-ACF1E24D5161F5DE.jpg",
+        "upc": "",
+        "varietal": "Red Meritage",
+        "vintage": "2015",
+        "webImage": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/6C1D7642-BB7C-4CCC-B0183782BFD5986B/webimage-7873B00B-A581-4397-A131DF010BDDC4D4.jpg"
+    }
+]
+```
+
+Retrieves all neck hangers that have been modified since the specified date.
+
+### HTTP Request
+
+`https://api.cbrands.com/api/1.0/neckHangers`
+
+### Query Parameters
+
+Parameter | Description | Type
+--------- | ------- | -----------
+apiKey | The API key you received upon registration | string
+dateModified | Retrieve bottle shots modified after this date. ISO8601 format: yyyy-mm-ddThh:mm:ssZ. Example: 2016-12-25T10:30:00Z | string
+numberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+page | Offset page for results, return Nth set of results - default 1 if not specified | integer
+
+### Header Variables
+
+Header variables are optional and can be used instead of query parameters. Header variables will override query parameters if both are used.
+
+Variable | Description | Type
+--------- | ------- | -----------
+X-CBI-NumberOfRecords | The number of records to retrieve - default 50 if not specified | integer
+X-CBI-Page | Offset page for results, return Nth set of results - default 1 if not specified | integer
+
+<aside class="warning">
+  This request requires an API key to be included in the query parameters.
+</aside>
+
+## Get All Recipes
+
+> https://api.cbrands.com/api/1.0/recipes will return the following JSON:
+
+```json
+[
+    {
+        "brand": "SVEDKA",
+        "brandFamily": null,
+        "dateCreated": "2017-10-03T20:47:34Z",
+        "dateModified": "2017-10-03T20:47:34Z",
+        "datePublished": "2017-10-03T20:05:17Z",
+        "extension": "pdf",
+        "id": "F683D2F7-063D-496C-8E1DF9F9DD23240C",
+        "itemSize": "",
+        "miniImage": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/F683D2F7-063D-496C-8E1DF9F9DD23240C/mini-7434E1FF-DE1E-4388-930205DCAF8477D2.jpg",
+        "name": "SVK Vodka \"Candy Corn Jelly Shots\" Recipe",
+        "thul": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/F683D2F7-063D-496C-8E1DF9F9DD23240C/thul-9FA394BD-3CEC-45E0-91B957D50BFE29D8.jpg",
+        "upc": "",
+        "varietal": "Vodka",
+        "vintage": "",
+        "webImage": "https://d3cy9zhslanhfa.cloudfront.net/media/A00BE735-E84A-43D8-811178338E465C9A/F683D2F7-063D-496C-8E1DF9F9DD23240C/webimage-C2F2F85A-9EDA-47A0-ACFD3E1C3976F554.jpg"
+    }
+]
+```
+
+Retrieves all recipes that have been modified since the specified date.
+
+### HTTP Request
+
+`https://api.cbrands.com/api/1.0/recipes`
+
+### Query Parameters
+
+Parameter | Description | Type
+--------- | ------- | -----------
+apiKey | The API key you received upon registration | string
+dateModified | Retrieve bottle shots modified after this date. ISO8601 format: yyyy-mm-ddThh:mm:ssZ. Example: 2016-12-25T10:30:00Z | string
 numberOfRecords | The number of records to retrieve - default 50 if not specified | integer
 page | Offset page for results, return Nth set of results - default 1 if not specified | integer
 
